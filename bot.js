@@ -21,7 +21,7 @@ const queue = new Map();
 
 client.on('ready', function(){
     var ms = 10000 ;
-    var setGame = ['Shdeed','Bot','Music','ヅ'];
+    var setGame = ['『 s!help 』','❃ s!help ❃','☣ s!help ☣','❄ s!help ❄','✯ s!help ✯','☾ s!help ☽','✧ s!help ✧'];
     var i = -1;
     var j = 0;
     setInterval(function (){
@@ -246,6 +246,51 @@ client.on('message', message => {
             .setColor("RANDOM")
             .setImage(`${x5bzm.avatarURL}`)
         message.channel.sendEmbed(embed);
+    }
+});
+client.on('message', message => {
+    if (message.content.startsWith("s!ibot")) {
+        message.channel.send({
+            embed: new Discord.RichEmbed()
+                .setAuthor(client.user.username, client.user.avatarURL)
+                .setThumbnail(client.user.avatarURL)
+                .setColor('RANDOM')
+                .setTitle('``TJM ~ BOT#0395`` ')
+                .addField('**وقت التشغيل⌚**', timeCon(process.uptime()), true)
+                .addField('**سرعة الاتصال📡**', `${Date.now() - message.createdTimestamp}` + ' ms')
+                .addField('**الذاكرة المستخدمة 💾**', `${(process.memoryUsage().rss / 1000000).toFixed()}MB`, true)
+                .addField('``عدد السيرفرات الشغال فيها 🌐 ``', [client.guilds.size], true)
+                .addField('**استخدام المعالج💿**', `${(process.cpuUsage().rss / 10000).toFixed()}%`, true)
+                .addField('``الاسم``', `[ ${client.user.tag} ]`, true)
+                .addField('``الايدي :id: ``', `[ ${client.user.id} ]`, true)
+                .addField('``مفتاح التشغيل 🔑 ``', `s!`, true)
+                .addField('``اللغة المستخدمة 💬 ``', `[ Java Script ]`, true)
+                .setFooter('By | @XNAR-x4#4689 ')
+        })
+    }
+});
+client.on('message', message => {
+    if (message.author.id === client.user.id) return;
+    if (message.guild) {
+        let embed = new Discord.RichEmbed()
+        let args = message.content.split(' ').slice(1).join(' ');
+        if (message.content.split(' ')[0] == 's!broadcast') {
+            if (!args[1]) {
+                message.channel.send("***broadcast <message>**");
+                return;
+            }
+            message.guild.members.forEach(m => {
+                if (!message.member.hasPermission('ADMINISTRATOR')) return;
+                var bc = new Discord.RichEmbed()
+                    .addField('» المرسل : ', `${message.author.username}#${message.author.discriminator}`)
+                    .addField(' » 📋| الرسالة : ', args)
+                    .setColor('#ff0000')
+                // m.send(`[${m}]`);
+                m.send(`${m}`, { embed: bc });
+            });
+        }
+    } else {
+        return;
     }
 });
 client.on("message", message => {
