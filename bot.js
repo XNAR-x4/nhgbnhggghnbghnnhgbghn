@@ -257,7 +257,6 @@ client.on('message', message => {
                 .setThumbnail(client.user.avatarURL)
                 .setColor('RANDOM')
                 .setTitle('``TJM ~ BOT#0395`` ')
-                .addField('**وقت التشغيل⌚**', timeCon(process.uptime()), true)
                 .addField('**سرعة الاتصال📡**', `${Date.now() - message.createdTimestamp}` + ' ms')
                 .addField('**الذاكرة المستخدمة 💾**', `${(process.memoryUsage().rss / 1000000).toFixed()}MB`, true)
                 .addField('**استخدام المعالج💿**', `${(process.cpuUsage().rss / 10000).toFixed()}%`, true)
