@@ -342,30 +342,6 @@ client.on('guildMemberRemove', member => {
     if (!channel) return;
     channel.send({ embed: embed });
 });
-client.on('message', function (message) {
-    if (message.channel.type === "dm") {
-        if (message.author.id === client.user.id) return;
-        var iiMo = new Discord.RichEmbed()
-            .setColor('RANDOM')
-            .setTimestamp()
-            .setTitle('``عندي رساله جديده بل خاص ! ``')
-            .setThumbnail(`${message.author.avatarURL}`)
-            .setDescription(`\n\n\`\`\`${message.content}\`\`\``)
-            .setFooter(`من (@${message.author.tag})  |  (${message.author.id})`)
-        client.channels.get("465403343376744448").send({ embed: iiMo });
-    }
-});
-const figlet = require('figlet');
-client.on('message', message => {
-    if (message.content.startsWith("s!tag")) {
-        let args = message.content.split(" ").slice(1);
-        if (!args[0]) return message.reply('مرجو كتابة نص');
-
-        figlet(args.join(" "), (err, data) => {
-            message.channel.send("```" + data + "```") //  عدل على النقاط وحطهم 3 من الجهتين مثل`` كذا تزيد واحد
-        })
-    }
-});
 client.on("message", message => {
     if (!message.channel.guild) return;
     if (message.author.bot) return;
