@@ -19,30 +19,22 @@ const queue = new Map();
 
 
 
-client.on('ready', () => {
-  console.log(`Logged in as ${client.user.tag}!`);
-client.user.setGame(`s!help | Shdeed - bot`,"http://twitch.tv/S-F")
-  console.log('')
-  console.log('')
-  console.log('╔[═════════════════════════════════════════════════════════════════]╗')
-  console.log(`[Start] ${new Date()}`);
-  console.log('╚[═════════════════════════════════════════════════════════════════]╝')
-  console.log('')
-  console.log('╔[════════════════════════════════════]╗');
-  console.log(`Logged in as * [ " ${client.user.username} " ]`);
-  console.log('')
-  console.log('Informations :')
-  console.log('')
-  console.log(`servers! [ " ${client.guilds.size} " ]`);
-  console.log(`Users! [ " ${client.users.size} " ]`);
-  console.log(`channels! [ " ${client.channels.size} " ]`);
-  console.log('╚[════════════════════════════════════]╝')
-  console.log('')
-  console.log('╔[════════════]╗')
-  console.log(' Bot Is Online')
-  console.log('╚[════════════]╝')
-  console.log('')
-  console.log('')
+client.on('ready', function(){
+    var ms = 10000 ;
+    var setGame = ['Shdeed','Bot','Music','ヅ'];
+    var i = -1;
+    var j = 0;
+    setInterval(function (){
+        if( i == -1 ){
+            j = 1;
+        }
+        if( i == (setGame.length)-1 ){
+            j = -1;
+        }
+        i = i+j;
+        client.user.setGame(setGame[i],`http://www.twitch.tv/D.JPEI`);
+    }, ms);
+
 });
 
 
@@ -162,7 +154,7 @@ ${serverQueue.songs.map(song => `**${++index} -** ${song.title}`).join('\n')}
 		if (serverQueue && serverQueue.playing) {
 			serverQueue.playing = false;
 			serverQueue.connection.dispatcher.pause();
-			return msg.channel.send('تم إيقاف الموسيقى مؤقتا!');
+			return msg.channel.send('تم إيقاف المقطع مؤقتا!');
 		}
 		return msg.channel.send('There is nothing playing.');
 	} else if (command === "resume") {
@@ -213,7 +205,7 @@ async function handleVideo(video, msg, voiceChannel, playlist = false) {
 		serverQueue.songs.push(song);
 		console.log(serverQueue.songs);
 		if (playlist) return undefined;
-		else return msg.channel.send(` **${song.title}** تم اضافه الاغنية الي القائمة!`);
+		else return msg.channel.send(` **${song.title}** تم اضافه المقطع الي القائمة!`);
 	}
 	return undefined;
 }
@@ -240,6 +232,41 @@ function play(guild, song) {
 
 	serverQueue.textChannel.send(`بدء تشغيل: **${song.title}**`);
 }
+client.on("message", message => {
+    if (message.content === "s!help") {
+        message.reply('**تم ارسال اوامر البوت في الخاص :envelope_with_arrow:**')
+        const embed = new Discord.RichEmbed()
+            .setColor('RANDOM')
+            .setThumbnail(message.author.avatarURL)
+            .setDescription(`
+   **
+    
+   **
+    
+مفتاح البوت : s! 
+  
+**
 
+      ***__الأوامر العامة__***
+ **
+『 p / لتشغيل مقطع برابط  أو بأسم 』
+『 s / لتجاوز المقطع الحالية 』
+『 pause / ايقاف الأغنية مؤقتا 』
+『 resume / لمواصلة المقطع بعد ايقافها مؤقتا 』
+『 vol / لتغيير درجة الصوت 100 - 0』
+『 stop / لإخرآج البوت من الروم 』
+『 np / لمعرفة المقطع المشغلة حاليا 』
+『 queue / لمعرفة قائمة التشغيل 』
+        
+          ** 
+          
+『 لدعوة البوت للسيرفر ..' , ' http://i8.ae/QGf84                                  
+                                                    `)
+
+
+        message.author.sendEmbed(embed)
+
+    }
+});
 
 client.login(process.env.BOT_TOKEN);
