@@ -396,17 +396,6 @@ client.on("message", async message => {
 
     }
 });
-const figlet = require('figlet');
-client.on('message', message => {
-    if (message.content.startsWith("s!tag")) {
-        let args = message.content.split(" ").slice(1);
-        if (!args[0]) return message.reply('مرجو كتابة نص');
-
-        figlet(args.join(" "), (err, data) => {
-            message.channel.send("```" + data + "```") //  عدل على النقاط وحطهم 3 من الجهتين مثل`` كذا تزيد واحد
-        })
-    }
-});
 client.on("message", message => {
     if (message.content === "s!help") {
         message.reply('**تم ارسال اوامر البوت في الخاص :envelope_with_arrow:**')
