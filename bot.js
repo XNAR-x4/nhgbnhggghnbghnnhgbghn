@@ -328,6 +328,20 @@ client.on('guildMemberAdd', member => {
 
     channel.sendEmbed(embed);
 });
+client.on('guildMemberRemove', member => {
+    var embed = new Discord.RichEmbed()
+        .setAuthor(member.user.username, member.user.avatarURL)
+        .setThumbnail(member.user.avatarURL)
+        .setTitle(`غادر من السيرفر`)
+        .setDescription(`تشرفنا بك `)
+        .addField('👤   تبقي', `**[ ${member.guild.memberCount} ]**`, true)
+        .setColor('RED')
+        .setFooter(`==== نــتــمــنــآ لــكــم آســتــمـــتــآع ====`, 'https://cdn.discordapp.com/attachments/456405370819051532/462721060379557908/smiling-face-with-smiling-eyes_1f60a.png')
+
+    var channel = member.guild.channels.find('name', 'welcome')
+    if (!channel) return;
+    channel.send({ embed: embed });
+});
 client.on("message", message => {
     if (!message.channel.guild) return;
     if (message.author.bot) return;
