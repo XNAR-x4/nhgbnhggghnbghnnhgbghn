@@ -316,8 +316,7 @@ client.on("message", message => {
 『 queue / لمعرفة قائمة التشغيل 』
         
 
-          
-『 لدعوة البوت للسيرفر ..' , ' http://i8.ae/QGf84                                  
+                              
                                                     `)
 
 
