@@ -239,10 +239,6 @@ client.on("message", message => {
             .setColor('RANDOM')
             .setThumbnail(message.author.avatarURL)
             .setDescription(`
-   **
-    
-   **
-    
 مفتاح البوت : s! 
   
 **
@@ -258,7 +254,7 @@ client.on("message", message => {
 『 np / لمعرفة المقطع المشغلة حاليا 』
 『 queue / لمعرفة قائمة التشغيل 』
         
-          ** 
+
           
 『 لدعوة البوت للسيرفر ..' , ' http://i8.ae/QGf84                                  
                                                     `)
