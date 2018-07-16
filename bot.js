@@ -268,10 +268,10 @@ client.on('message', message => {
                 .addField('**الذاكرة المستخدمة 💾**', `${(process.memoryUsage().rss / 1000000).toFixed()}MB`, true)
                 .addField('**استخدام المعالج💿**', `${(process.cpuUsage().rss / 10000).toFixed()}%`, true)
                 .addField('``الاسم``', `[ ${client.user.tag} ]`, true)
-                .addField('``الايدي :id: ``', `[ ${client.user.id} ]`, true)
+                .addField('``الايدي 🆔 ``', `[ ${client.user.id} ]`, true)
                 .addField('``مفتاح التشغيل 🔑 ``', `s!`, true)
                 .addField('``اللغة المستخدمة 💬 ``', `[ Java Script ]`, true)
-                .setFooter('By | @XNAR-x4#4689 ')
+                .setFooter('By | @XNAR-x4#9065 ')
         })
     }
 });
@@ -297,7 +297,7 @@ client.on('message', message => {
     if (message.guild) {
         let embed = new Discord.RichEmbed()
         let args = message.content.split(' ').slice(1).join(' ');
-        if (message.content.split(' ')[0] == 's!broadcast') {
+        if (message.content.split(' ')[0] == 's!br') {
             if (!args[1]) {
                 message.channel.send("***broadcast <message>**");
                 return;
@@ -407,11 +407,11 @@ client.on("message", message => {
   
 **
 
-      ***__الأوامر العامة__***
+      ***__اوامر تشغيل مقطع__***
  **
 『 p / لتشغيل مقطع برابط  أو بأسم 』
 『 s / لتجاوز المقطع الحالية 』
-『 pause / ايقاف الأغنية مؤقتا 』
+『 pause / ايقاف المقطع مؤقتا 』
 『 resume / لمواصلة المقطع بعد ايقافها مؤقتا 』
 『 vol / لتغيير درجة الصوت 100 - 0』
 『 stop / لإخرآج البوت من الروم 』
@@ -427,5 +427,37 @@ client.on("message", message => {
 
     }
 });
+client.on("message", message => {
+    if (message.content === "s!help") {
+        message.reply('**تم ارسال اوامر البوت في الخاص :envelope_with_arrow:**')
+        const embed = new Discord.RichEmbed()
+            .setColor('RANDOM')
+            .setThumbnail(message.author.avatarURL)
+            .setDescription(`
+مفتاح البوت : s! 
+  
+**
+
+      ***__اوامر تشغيل مقطع__***
+ **
+『 p / لتشغيل مقطع برابط  أو بأسم 』
+『 s / لتجاوز المقطع الحالية 』
+『 pause / ايقاف المقطع مؤقتا 』
+『 resume / لمواصلة المقطع بعد ايقافها مؤقتا 』
+『 vol / لتغيير درجة الصوت 100 - 0』
+『 stop / لإخرآج البوت من الروم 』
+『 np / لمعرفة المقطع المشغلة حاليا 』
+『 queue / لمعرفة قائمة التشغيل 』
+        
+
+                              
+                                                    `)
+
+
+        message.author.sendEmbed(embed)
+
+    }
+});
+
 
 client.login(process.env.BOT_TOKEN);
