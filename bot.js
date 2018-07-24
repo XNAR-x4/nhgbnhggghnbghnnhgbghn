@@ -277,7 +277,7 @@ client.on('message', message => {
 });
 
 client.on('message', message => {
-    if (message.content.startsWith('s!dragall')) {
+    if (message.content.startsWith('s!movall')) {
         if (!message.member.hasPermission("MOVE_MEMBERS")) return message.channel.send('**لايوجد لديك صلاحية سحب الأعضاء**');
         if (!message.guild.member(client.user).hasPermission("MOVE_MEMBERS")) return message.reply("**لايوجد لدي صلاحية السحب**");
         if (message.member.voiceChannel == null) return message.channel.send(`**الرجاء الدخول لروم صوتي**`)
@@ -396,6 +396,27 @@ client.on("message", async message => {
 
     }
 });
+  client.on("message", message => { 
+            var args = message.content.substring(PREFIX.length).split(" ");
+            if (message.content.startsWith("clear")) {
+   if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply('⚠ | **ليس لديك صلاحيات**');
+        var msg;
+        msg = parseInt();
+      
+      message.channel.fetchMessages({limit: msg}).then(messages => message.channel.bulkDelete(messages)).catch(console.error);
+      message.channel.sendMessage("", {embed: {
+        title: "Done | تــم",
+        color: 0x06DF00,
+        description: "تم مسح الرسائل بنجاح",
+        footer: {
+          text: "Mrzizx" // غير هنا حط اسم البوت
+        }
+      }}).then(msg => {msg.delete(3000)});
+                          }
+
+     
+});
+  
 client.on("message", message => {
     if (message.content === "s!help") {
         message.reply('**تم ارسال اوامر البوت في الخاص :envelope_with_arrow:**')
@@ -440,14 +461,14 @@ client.on("message", message => {
 
       ***__اوامر تشغيل مقطع__***
  **
-『 p / لتشغيل مقطع برابط  أو بأسم 』
-『 s / لتجاوز المقطع الحالية 』
-『 pause / ايقاف المقطع مؤقتا 』
+『 server / لتشغيل مقطع برابط  أو بأسم 』
+『 image / يعرض صوره السيرفر 』
+『 avatar / يعرض صورتك او صوره شخص 』
 『 resume / لمواصلة المقطع بعد ايقافها مؤقتا 』
 『 vol / لتغيير درجة الصوت 100 - 0』
-『 stop / لإخرآج البوت من الروم 』
-『 np / لمعرفة المقطع المشغلة حاليا 』
-『 queue / لمعرفة قائمة التشغيل 』
+『 bot / معلومات عن البوت 』
+『 movall / لسحب جميع الأعضاء لك 』
+『 br / رسالة جماعية للجميع الأعضاء 』
         
 
                               
