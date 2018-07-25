@@ -398,7 +398,7 @@ client.on("message", async message => {
 });
   client.on("message", message => { 
             var args = message.content.substring(PREFIX.length).split(" ");
-            if (message.content.startsWith("clear")) {
+            if (message.content.startsWith("s!clear")) {
    if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply('⚠ | **ليس لديك صلاحيات**');
         var msg;
         msg = parseInt();
@@ -488,6 +488,7 @@ client.on("message", message => {
  **
 『 movall / لسحب جميع الأعضاء لك 』
 『 br / رسالة جماعية للجميع الأعضاء 』
+『 clear / لمسح رسائل الشات 』
         
 
                               
