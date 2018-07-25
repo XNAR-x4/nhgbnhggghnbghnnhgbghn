@@ -450,7 +450,6 @@ client.on("message", message => {
 });
 client.on("message", message => {
     if (message.content === "s!help") {
-        message.reply('**تم ارسال اوامر البوت في الخاص :envelope_with_arrow:**')
         const embed = new Discord.RichEmbed()
             .setColor('RANDOM')
             .setThumbnail(message.author.avatarURL)
@@ -459,14 +458,34 @@ client.on("message", message => {
   
 **
 
-      ***__اوامر تشغيل مقطع__***
+      ***__الاوامر العامة__***
  **
-『 server / لتشغيل مقطع برابط  أو بأسم 』
+『 server / معلومات السيرفر 』
 『 image / يعرض صوره السيرفر 』
 『 avatar / يعرض صورتك او صوره شخص 』
-『 resume / لمواصلة المقطع بعد ايقافها مؤقتا 』
-『 vol / لتغيير درجة الصوت 100 - 0』
 『 bot / معلومات عن البوت 』
+        
+
+                              
+                                                    `)
+
+
+        message.author.sendEmbed(embed)
+
+    }
+});
+client.on("message", message => {
+    if (message.content === "s!help") {
+        const embed = new Discord.RichEmbed()
+            .setColor('RANDOM')
+            .setThumbnail(message.author.avatarURL)
+            .setDescription(`
+مفتاح البوت : s! 
+  
+**
+
+      ***__اوامر الأدارة__***
+ **
 『 movall / لسحب جميع الأعضاء لك 』
 『 br / رسالة جماعية للجميع الأعضاء 』
         
