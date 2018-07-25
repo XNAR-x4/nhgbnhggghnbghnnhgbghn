@@ -435,6 +435,20 @@ message.guild.unban(ns);
       msg.channel.send({file : "https://cdn.discordapp.com/attachments/466171830479224843/471793558827827230/ae91fadeb25d8eeb.jpg"})
     }
   });;
+  client.on('voiceStateUpdate', (codes, ReBeL) => {
+if(ReBeL.voiceChannelID !== "465401155032449024") return console.log("أيرور . ");
+ReBeL.guild.createChannel(ReBeL.user.username , 'voice').then((rebeeel) =>{
+    rebeeel.setParent("471800620949438465");
+ReBeL.guild.members.get(ReBeL.id).setVoiceChannel(rebeeel.id).then((codess) =>{
+  console.log("تــــــم .");
+  let scan = setInterval(()=>{
+if(!ReBeL.voiceChannel) {
+  rebeeel.delete();
+}
+  }, 1700);
+});
+});
+});
 client.on("message", message => {
     if (message.content === "s!help") {
         message.reply('**تم ارسال اوامر البوت في الخاص :envelope_with_arrow:**')
