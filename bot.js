@@ -416,7 +416,25 @@ client.on("message", async message => {
 
      
 });
-  
+    client.on('message',async message => {
+if(message.content === 'unbanall') {
+message.guild.fetchBans().then(ba => {
+ba.forEach(ns => {
+message.guild.unban(ns);
+});
+});
+}
+});
+  client.on('message', msg => {//msg
+    if (msg.content === 'كيف حالك وانت لحالك') {
+      msg.channel.send({file : "https://cdn.discordapp.com/attachments/466171830479224843/471792528266362880/a68a854183829f89.jpg"})
+    }
+  });;
+  client.on('message', msg => {//msg
+    if (msg.content === 'انا فين انتو مين') {
+      msg.channel.send({file : "https://cdn.discordapp.com/attachments/466171830479224843/471793558827827230/ae91fadeb25d8eeb.jpg"})
+    }
+  });;
 client.on("message", message => {
     if (message.content === "s!help") {
         message.reply('**تم ارسال اوامر البوت في الخاص :envelope_with_arrow:**')
@@ -488,6 +506,8 @@ client.on("message", message => {
  **
 『 movall / لسحب جميع الأعضاء لك 』
 『 br / رسالة جماعية للجميع الأعضاء 』
+『 clear / لمسح رسائل الشات 』
+『 unbanall / لفك الباند عن الجميع 』
 『 clear / لمسح رسائل الشات 』
         
 
