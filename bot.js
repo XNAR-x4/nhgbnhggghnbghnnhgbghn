@@ -435,7 +435,28 @@ message.guild.unban(ns);
       msg.channel.send({file : "https://cdn.discordapp.com/attachments/466171830479224843/471793558827827230/ae91fadeb25d8eeb.jpg"})
     }
   });;
+client.on('message', message => {
+  if (message.content.startsWith(prefix + 'tag')) {
+    
+message.channel.send(`**Hi**`).then(message =>{
+ setInterval(function(){
+   message.edit('**~ W**') 
+   message.edit('**~ We**')   
+   message.edit('**~ Wel**')
+   message.edit('**~ Welc**')
+   message.edit('**~ Welco** ')
+   message.edit('**~ Welcom**')
+   message.edit('**~ Welcome**')
+   message.edit('**~ Welcome T**')
+   message.edit('**~ Welcome To**')
+   message.edit('**~ Welcome To T**')
+   message.edit('**~ Welcome To TJ**')
+   message.edit('**~ Welcome To TJM ~**')
 
+   }, 1000)
+});
+
+ }});
 client.on("message", message => {
     if (message.content === "s!help") {
         message.reply('**تم ارسال اوامر البوت في الخاص :envelope_with_arrow:**')
