@@ -436,7 +436,7 @@ message.guild.unban(ns);
     }
   });;
 client.on('message', message => {
-  if (message.content.startsWith(prefix + 'tag')) {
+  if (message.content.startsWith('Welcome to TJM')) {
     
 message.channel.send(`**Hi**`).then(message =>{
  setInterval(function(){
