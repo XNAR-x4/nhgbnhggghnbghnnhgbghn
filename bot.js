@@ -435,27 +435,6 @@ message.guild.unban(ns);
       msg.channel.send({file : "https://cdn.discordapp.com/attachments/466171830479224843/471793558827827230/ae91fadeb25d8eeb.jpg"})
     }
   });;
-client.on('message', message => {
-  if (message.content.startsWith('Welcome to TJM')) {
-    
-message.channel.send(`**~ W**`).then(message =>{
- setInterval(function(){
-   message.edit('**~ We**')   
-   message.edit('**~ Wel**')
-   message.edit('**~ Welc**')
-   message.edit('**~ Welco** ')
-   message.edit('**~ Welcom**')
-   message.edit('**~ Welcome**')
-   message.edit('**~ Welcome T**')
-   message.edit('**~ Welcome To**')
-   message.edit('**~ Welcome To T**')
-   message.edit('**~ Welcome To TJ**')
-   message.edit('**~ Welcome To TJM ~**')
-
-   }, 1000)
-});
-
- }});
 client.on("message", message => {
     if (message.content === "s!help") {
         message.reply('**تم ارسال اوامر البوت في الخاص :envelope_with_arrow:**')
@@ -471,11 +450,11 @@ client.on("message", message => {
 ╱╱╰╯╰━━┻╯╰╯╰╯
 
 
-مفتاح البوت : s! 
-  
+**مفتاح البوت : s!**
+
 **
 
-      ***__اوامر تشغيل مقطع__***
+      ***__اوامر تشغيل مقطع صوتي__***
  **
 『 p / لتشغيل مقطع برابط  أو بأسم 』
 『 s / لتجاوز المقطع الحالية 』
@@ -499,10 +478,9 @@ client.on("message", message => {
     if (message.content === "s!help") {
         const embed = new Discord.RichEmbed()
             .setColor('RANDOM')
-            .setThumbnail(message.author.avatarURL)
             .setDescription(`
-مفتاح البوت : s! 
-  
+**مفتاح البوت : s!**
+
 **
 
       ***__الاوامر العامة__***
@@ -525,10 +503,9 @@ client.on("message", message => {
     if (message.content === "s!help") {
         const embed = new Discord.RichEmbed()
             .setColor('RANDOM')
-            .setThumbnail(message.author.avatarURL)
             .setDescription(`
-مفتاح البوت : s! 
-  
+**مفتاح البوت : s!**
+
 **
 
       ***__اوامر الأدارة__***
@@ -547,7 +524,7 @@ client.on("message", message => {
         message.author.sendEmbed(embed)
 
     }
-});
+
 
 
 client.login(process.env.BOT_TOKEN);
