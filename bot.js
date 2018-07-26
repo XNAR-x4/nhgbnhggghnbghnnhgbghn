@@ -436,11 +436,10 @@ message.guild.unban(ns);
     }
   });;
 client.on('message', message => {
-  if (message.content.startsWith(prefix + 'tag')) {
+  if (message.content.startsWith('Welcome to TJM')) {
     
-message.channel.send(`**Hi**`).then(message =>{
+message.channel.send(`**~ W**`).then(message =>{
  setInterval(function(){
-   message.edit('**~ W**') 
    message.edit('**~ We**')   
    message.edit('**~ Wel**')
    message.edit('**~ Welc**')
@@ -455,8 +454,6 @@ message.channel.send(`**Hi**`).then(message =>{
 
    }, 1000)
 });
-
- }});
 
  }});
 client.on("message", message => {
