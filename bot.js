@@ -14,7 +14,7 @@ const queue = new Map();
 
 
 
-
+var prefix = "s!"
 
 
 
@@ -436,10 +436,11 @@ message.guild.unban(ns);
     }
   });;
 client.on('message', message => {
-  if (message.content.startsWith(PREFIX +'Welcome to TJM')) {
-        command = command.slice(PREFIX.length)
-message.channel.send(`**~ W**`).then(message =>{
+  if (message.content.startsWith(prefix + 'tag')) {
+    
+message.channel.send(`**Hi**`).then(message =>{
  setInterval(function(){
+   message.edit('**~ W**') 
    message.edit('**~ We**')   
    message.edit('**~ Wel**')
    message.edit('**~ Welc**')
@@ -454,6 +455,8 @@ message.channel.send(`**~ W**`).then(message =>{
 
    }, 1000)
 });
+
+ }});
 
  }});
 client.on("message", message => {
